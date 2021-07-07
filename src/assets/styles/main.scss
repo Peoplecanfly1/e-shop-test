@@ -1,3 +1,9 @@
-body{
-    color:red;
-}
+@import url('../fonts/stylesheet.css');
+@import './modules/variables';
+@import './modules/general';
+@import'./modules/header';
+@import './modules/mian';
+@import "./modules/wear_modules"
+
+
+

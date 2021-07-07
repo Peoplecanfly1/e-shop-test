@@ -1,0 +1,28 @@
+@import './variables';
+@import './mixin';
+
+header{
+    .breadcrumbs{
+        @include flex($jc: flex-start);
+        margin-top: 4px;
+
+        img{
+            padding-right: 5px;
+        }
+    }
+
+
+}
+
+
+.publish{
+    @include flex();
+    position: absolute;
+    right: 58px;
+    top:47px;
+
+    h5{
+        padding-right: 55px;
+    }
+    
+}

@@ -1,0 +1,72 @@
+@import './variables';
+@import './mixin';
+
+* {
+    font-family: 'Recoleta';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: $grey-text;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: 'Recoleta';
+    font-size: 48px;
+    
+}
+
+
+h5 {
+    font-family: 'Recoleta';
+    font-weight: 400;
+    font-size: 14px;
+    color: $grey-text;
+}
+
+body {
+    max-width: 1440px;
+    background: $backgound-body;
+    margin: 0 auto;
+
+
+    .wrapper {
+        padding-left: 151px;
+        margin: 0 auto;
+        padding-top: 38px;
+        
+        position: relative
+    }
+}
+
+
+.button{
+    width: 152px;
+    height: 43px;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &_publish {     
+        background: $button-gradient;
+        box-shadow: -3px 3px $purple;
+    }
+
+    &_disabled{
+       opacity: 0.5; 
+       pointer-events:  none;
+       
+    }  
+    
+    &:hover{
+        transform: translateY(-5px);
+    }
+}
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="../style/main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="logo">Scarlett</h1>
+        <div class="breadcrumbs">
+          <img src="./assets/Arrow.png" alt="arrow" />
+          <h5>Back to Products</h5>
+        </div>
+      </header>
+      <div class="publish">
+        <h5>Last updated 4 hours ago</h5>
+        <button class="button button_publish button_disabled">Publish</button>
+      </div>
+      <main>
+        <div class="description">
+          <div class="description__header">
+            <h2>Basics</h2>
+            <ul class="lang">
+              <li id="En">En</li>
+              <li id="Fr" class="not-active">Fr</li>
+              <li id="Es" class="not-active">Es</li>
+            </ul>
+          </div>
+          <div class="description__input">
+            <label>
+              <p>Name</p>
+              <input type="text" name="name" id="name" placeholder="Scarlett" />
+            </label>
+            <label>
+              <p>Description</p>
+              <textarea
+                name="desc"
+                id="desc"
+                cols="30"
+                rows="10"
+                placeholder="Product description"
+              ></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="images">
+          <div class="images__header">
+            <h2>Images</h2>
+          </div>
+          <div class="images__pics">
+            <!-- <div class="images__pics_product" id="">
+              <img src="https://admin.heragenda.com/wp-content/uploads/2019/07/Canva-Woman-Wearing-Blue-Shawl-Lapel-Suit-Jacket.jpg" alt="product">
+            </div>
+            <div class="images__pics_product" id="">
+              <img src="https://admin.heragenda.com/wp-content/uploads/2019/07/Canva-Woman-Wearing-Blue-Shawl-Lapel-Suit-Jacket.jpg" alt="product">
+            </div>
+            <div class="images__pics_product" id="">
+              <img src="https://admin.heragenda.com/wp-content/uploads/2019/07/Canva-Woman-Wearing-Blue-Shawl-Lapel-Suit-Jacket.jpg" alt="product">
+            </div> -->
+          </div>
+          <div class="images__drag ">
+            <!-- images__drag_minimized -->
+            <p class="images__drag__text">
+              Drag and drop or browse to choose a file
+            </p>
+            <p class="images__drag__formats">JPEG, PNG, GIF, MP4 are allowed</p>
+          </div>
+        </div>
+      </main>
+      <div class="wear-models">
+        <section class="wear-models__option">
+          <h2>Options</h2>
+          <h5 class="wear-models__option_question">Does your product have options like color or size</h5>
+          <div class="options">
+            <ul class="options__list" id="option">         
+              <li class="options__list__item options__list__item_active">
+                <p>Color</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item" >
+                <p>Size</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item options__list__new">+New</li>
+            </ul>
+          </div>
+          <div class="options">
+            <p>Colors</p>
+            <ul class="options__list" id="color">         
+              <li class="options__list__item options__list__item_active">
+                <p>Burnt</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item options__list__item_active">
+                <p>Olive</p>
+                <button>x</button>
+              </li >
+              <li class="options__list__item options__list__new">+New</li>
+            </ul>
+          </div>
+          <div class="options">
+            <p>Sizes</p>
+            <ul class="options__list" id="size">         
+              <li class="options__list__item">
+                <p>XS</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item">
+                <p>S</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item">
+                <p>M</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item">
+                <p>L</p>
+                <button>x</button>
+              </li>
+              <li class="options__list__item">
+                <p>XL</p>
+                <button>x</button>
+              </li>
+              <li class="new">+New</li>
+            </ul>
+          </div>
+
+        </section>
+        <section class="wear-models__variants"></section>
+      </div>
+      
+      <div class="pricing"></div>
+      <button class="button button_light">
+        <img src="./assets/Delete.png" alt="" />
+        Delete
+      </button>
+    </div>
+  </body>
+</html>
