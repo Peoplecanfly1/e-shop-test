@@ -26,6 +26,7 @@ h5 {
 
 body {
   max-width: 1440px;
+  min-height: 1500px;
   background: linear-gradient(to bottom, #FFF5E1, #FFE9FA);
   margin: 0 auto;
 }
@@ -48,6 +49,18 @@ body .wrapper {
   transition: 0.3s;
 }
 
+.button_light {
+  margin-left: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_light * {
+  padding: 0 10px;
+}
+
 .button_publish {
   background: linear-gradient(to right, #F1C8C5, #C6C5F1);
   box-shadow: -3px 3px #6A58B2;
@@ -62,7 +75,7 @@ body .wrapper {
   transform: translateY(-5px);
 }
 
-header .breadcrumbs {
+header .breadcrumbs a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -70,7 +83,7 @@ header .breadcrumbs {
   margin-top: 4px;
 }
 
-header .breadcrumbs img {
+header .breadcrumbs a img {
   padding-right: 5px;
 }
 
@@ -246,18 +259,35 @@ main .images__drag__formats {
   margin-bottom: 6px;
 }
 
+.wear-models {
+  margin-left: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .wear-models__option {
-  width: 38%;
-  margin-top: 80px;
+  width: 39%;
+  margin-top: 89px;
 }
 
 .wear-models__option_question {
-  padding-top: 20px;
+  padding-top: 24px;
+}
+
+.wear-models .options {
+  margin-top: 20px;
+}
+
+.wear-models .options_first {
+  margin-top: 10px;
 }
 
 .wear-models .options__list {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .wear-models .options__list .options__list__item {
@@ -265,14 +295,17 @@ main .images__drag__formats {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-right: 5px;
+  margin: 8px 10px 0 0;
   border: 1px solid black;
   border-radius: 8px;
-  padding: 2px 10px;
+  padding: 3px 16px;
+  transition: 0.3s;
+  cursor: default;
 }
 
 .wear-models .options__list .options__list__item p {
   padding: 0 10px;
+  cursor: default;
 }
 
 .wear-models .options__list .options__list__item button {
@@ -281,10 +314,77 @@ main .images__drag__formats {
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  cursor: pointer;
+}
+
+.wear-models .options__list .options__list__item:hover {
+  color: white;
+  background-color: #232323;
+}
+
+.wear-models .options__list .options__list__item:hover button {
+  color: white;
 }
 
 .wear-models .options__list .options__list__item_active {
-  background-color: black;
+  background-color: #232323;
   color: white;
+}
+
+.wear-models .options__list .options__list__item_active button {
+  color: white;
+}
+
+.wear-models .options__list .options__list__item_active:hover {
+  background-color: transparent;
+  color: #232323;
+}
+
+.wear-models .options__list .options__list__item_active:hover button {
+  color: #232323;
+}
+
+.wear-models .options__list .options__list__item__new {
+  cursor: pointer;
+  border: 1px dashed black;
+}
+
+.wear-models__variants {
+  margin-left: 7.7%;
+  width: 38.5%;
+}
+
+.pricing {
+  margin: 73px 0 86px;
+}
+
+table {
+  color: #444444;
+  font-size: 14px;
+  border-collapse: collapse;
+  margin-left: 3px;
+  margin-top: 30px;
+}
+
+table thead th {
+  padding-bottom: 7px;
+  text-align: initial;
+  padding-left: 4px;
+}
+
+table th {
+  font-weight: 400;
+}
+
+table td {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: 7px 78px 7px 15px;
+  width: 35px;
+  background-color: white;
+}
+
+table .th-name {
+  padding-right: 138px;
 }
 /*# sourceMappingURL=main.css.map */

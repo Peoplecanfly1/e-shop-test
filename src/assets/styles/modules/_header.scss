@@ -2,7 +2,7 @@
 @import './mixin';
 
 header{
-    .breadcrumbs{
+    .breadcrumbs a{
         @include flex($jc: flex-start);
         margin-top: 4px;
 

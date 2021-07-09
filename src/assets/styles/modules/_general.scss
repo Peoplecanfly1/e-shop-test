@@ -30,6 +30,7 @@ h5 {
 
 body {
     max-width: 1440px;
+    min-height: 1500px;
     background: $backgound-body;
     margin: 0 auto;
 
@@ -53,6 +54,17 @@ body {
     border: 1px solid black;
     cursor: pointer;
     transition: 0.3s;
+
+
+    &_light{
+        margin-left: 2px;
+        @include flex();
+
+        & *{
+            padding: 0 10px;
+        }
+        
+    }
 
     &_publish {     
         background: $button-gradient;
