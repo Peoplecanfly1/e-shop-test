@@ -23,26 +23,13 @@
     :products="backData.product"
     > 
     </Options>
-
-    <div class="pricing">
-      <h2>Pricing</h2>
-      <table>
-        <thead>
-          <tr>
-            <th class="th-name">Variant</th>
-            <th>World</th>
-            <th>US</th>
-            <th>EU</th>
-          </tr>
-        </thead>
-        <tr>
-          <td class="th-name">Name</td>
-          <td>150</td>
-          <td>200</td>
-          <td>300</td>
-        </tr>
-      </table>
-    </div>
+    <Pricing
+      v-if="backData"
+      :product="backData.product"
+      :countries="backData.regions"
+    > 
+    </Pricing>
+    
     <button class="button button_light">
       <img src="./assets/Delete.png" alt="" />
       <p>Delete</p>
@@ -52,10 +39,12 @@
 
 <script>
 import Description from "./components/Description.vue";
-import Options from "./components/Options.vue"
+import Options from "./components/Options.vue";
+import Pricing from "./components/Pricing.vue";
+
 export default {
   name: "App",
-  components: { Description, Options },
+  components: { Description, Options, Pricing },
   data() {
     return {
       backData: null
