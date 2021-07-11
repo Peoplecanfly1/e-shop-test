@@ -18,21 +18,69 @@
           {{ item.price }}
         </td>
       </tr>
+      <template v-if="product.options.length">
+        <PriceOption
+          v-for="(item, id) in getUniqOptions"
+          :key="id"
+          :item="item"
+          :index="index"
+          :variants="getrowList(item, index)"
+        >
+        </PriceOption>
+      </template>
     </table>
   </div>
 </template>
 
 <script>
+import PriceOption from "./PriceOption.vue";
+
 export default {
   data() {
-    return {};
+    return {
+      index: 0,
+      prevOptions: null
+    };
   },
 
-  methods: {},
+  components: {
+    PriceOption
+  },
+
+  methods: {
+    getrowList(item, index) {
+      return this.product.variants.filter(elem => {
+        if (elem.options[index] == item) {
+          return true;
+        }
+      });
+    }
+  },
 
   computed: {
     priceList() {
       return this.product.variants[0].prices;
+    },
+
+    isntEmptyArr() {
+      if (this.product.variants[0].options[this.index]) {
+        return true;
+      }
+
+      return false;
+    },
+
+    getUniqOptions() {
+      let arr = [];
+
+      this.product.variants.forEach(item => {
+        let element = item.options[this.index];
+        if (!arr.includes(element)) {
+          arr.push(element);
+        }
+      });
+
+      return arr;
     }
   },
 

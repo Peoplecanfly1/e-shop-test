@@ -4,7 +4,7 @@
       <h1 class="logo">Scarlett</h1>
       <div class="breadcrumbs">
         <img src="./assets/Arrow.png" alt="arrow" />
-        <h5 >Back to Products</h5>
+        <h5>Back to Products</h5>
       </div>
     </header>
     <div class="publish">
@@ -12,24 +12,17 @@
       <button class="button button_publish button_disabled">Publish</button>
     </div>
     <!-- Description of product incl Images -->
-    <Description
-      v-if="backData"
-     :backData="backData">
-    </Description>
+    <Description v-if="backData" :backData="backData"> </Description>
 
     <!-- Options & variants -->
-    <Options
-    v-if="backData"
-    :products="backData.product"
-    > 
-    </Options>
+    <Options v-if="backData" :products="backData.product"> </Options>
     <Pricing
       v-if="backData"
       :product="backData.product"
       :countries="backData.regions"
-    > 
+    >
     </Pricing>
-    
+
     <button class="button button_light">
       <img src="./assets/Delete.png" alt="" />
       <p>Delete</p>
@@ -54,7 +47,7 @@ export default {
   created: async function() {
     let result = await fetch("http://localhost:4000/api/products/rose");
     let response = await result.json();
-    console.log(response)
+    console.log(response);
     this.backData = response;
   }
 };
