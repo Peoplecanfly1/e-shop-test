@@ -8,7 +8,7 @@
             v-for="(lang, id) in backData.locales"
             :key="id"
             :class="{ 'not-active': currentLang != lang }"
-            @click="currentLang = lang"
+            @click="langSwitch(lang)"
           >
             {{ getRegion(lang) }}
           </li>
@@ -43,13 +43,14 @@
 </template>
 
 <script>
+
 import Images from "./Images.vue";
 
 export default {
   data() {
     return {
-      currentLang: this.backData.locales[0], // firstLang as standart one.
-      productName: this.backData.product.name,
+      currentLang: this.backData.default_locale, // firstLang as standart one.
+      productName: this.backData.product.name, // by default
       productDescription: this.backData.product.description,
       productPics: this.backData.product.images
     };
@@ -62,7 +63,33 @@ export default {
     getRegion(str) {
       let result = str[0].toUpperCase() + str[1];
       return result;
+    },
+
+    langSwitch(lang) {
+      this.currentLang = lang;
+      if (this.currentLang == this.backData.default_locale) {
+        this.productName = this.backData.product.name;
+        this.productDescription = this.backData.product.description;
+      } else {
+        let langData = this.backData.product.localization[this.currentLang];
+        this.productName = langData.name;
+        this.productDescription = langData.description;
+      }
     }
+  },
+
+  watch: {
+    productName: function() {
+      if (this.productName != this.backData.product.name) {
+        this.$emit("changeName", this.productName, this.currentLang);
+      }
+    },
+    productDescription: function(){
+       if (this.productDescription != this.backData.product.description) {
+        this.$emit("changeDesc", this.productDescription, this.currentLang);
+      }
+    }
+
   }
 };
 </script>

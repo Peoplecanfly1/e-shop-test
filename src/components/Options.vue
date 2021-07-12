@@ -10,7 +10,7 @@
           <li
             v-for="(option, index) in products.options"
             :key="index"
-            class="options__list__item "
+            class="options__list__item  options__list__item_active"
           >
             <p>{{ option }}</p>
             <button>x</button>
@@ -40,7 +40,7 @@
         <li
           v-for="(variant, index) in variants"
           :key="index"
-          class="options__list__item "
+          class="options__list__item options__list__item_active "
         >
           <p>{{ variant.options.join(" ") }}</p>
           <button>x</button>

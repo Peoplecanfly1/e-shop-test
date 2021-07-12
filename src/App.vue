@@ -3,16 +3,30 @@
     <header>
       <h1 class="logo">Scarlett</h1>
       <div class="breadcrumbs">
-        <img src="./assets/Arrow.png" alt="arrow" />
-        <h5>Back to Products</h5>
+        <a href="">
+          <img src="./assets/Arrow.png" alt="arrow" />
+          <h5>Back to Products</h5>
+        </a>
       </div>
     </header>
     <div class="publish">
       <h5>Last updated 4 hours ago</h5>
-      <button class="button button_publish button_disabled">Publish</button>
+      <button
+        class="button button_publish"
+        :class="{ button_disabled: notChanged }"
+        @click="sendProduct"
+      >
+        Publish
+      </button>
     </div>
     <!-- Description of product incl Images -->
-    <Description v-if="backData" :backData="backData"> </Description>
+    <Description
+      v-if="backData"
+      :backData="backData"
+      @changeName="changeBackName"
+      @changeDesc="changeBackDesc"
+    >
+    </Description>
 
     <!-- Options & variants -->
     <Options v-if="backData" :products="backData.product"> </Options>
@@ -37,18 +51,52 @@ import Pricing from "./components/Pricing.vue";
 
 export default {
   name: "App",
-  components: { Description, Options, Pricing },
   data() {
     return {
-      backData: null
+      backData: null,
+      notChanged: true
     };
   },
+  watch: {
+    backData: {
+      handler: function(val, oldVal) {
+        if (oldVal != null) {
+          this.notChanged = false;
+        }
+      },
+      deep: true,
+    }
+  },
+  components: { Description, Options, Pricing },
 
   created: async function() {
     let result = await fetch("http://localhost:4000/api/products/rose");
     let response = await result.json();
-    console.log(response);
     this.backData = response;
+    console.log(response);
+  },
+
+  methods: {
+    changeBackName(name, lang) {
+      if (lang == "en") {
+        this.backData.product.name = name;
+      } else {
+        this.backData.product.localization[lang].name = name;
+      }
+    },
+
+    changeBackDesc(desc, lang) {
+      if (lang == "en") {
+        console.log(desc);
+        this.backData.product.description = desc;
+      } else {
+        this.backData.product.localization[lang].description = desc;
+      }
+    },
+
+    sendProduct(){
+      
+    }
   }
 };
 </script>
