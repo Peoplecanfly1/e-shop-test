@@ -56,6 +56,12 @@ body {
     transition: 0.3s;
 
 
+    &_little{
+        font-size: 14px;
+        width: 120px;
+        height: 30px;
+    }
+
     &_light{
         margin-left: 2px;
         @include flex();

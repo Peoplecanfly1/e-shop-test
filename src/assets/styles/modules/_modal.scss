@@ -1,0 +1,43 @@
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    background: $button-gradient;
+    padding: 20px 40px;
+    width: 30%;
+    @include flex();
+    flex-direction: column;
+    display: none;
+
+    &_active{
+        display: flex;
+    }
+
+    input{
+        min-width: 300px;
+        margin-top: 10px;
+        height: 39px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        outline: none;
+        resize: none;
+        outline: none;
+        font-size: 14px;
+        color: black;
+        padding-left: 15px;
+        margin-bottom: 15px;;
+
+        &:focus {
+            border: 1px solid #86AFFF;
+        }
+    }
+
+    .close{
+        position: absolute;
+        top: 3px;
+        right: 15px;
+        font-size: 22px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+}

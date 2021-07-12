@@ -13,9 +13,9 @@
             class="options__list__item  options__list__item_active"
           >
             <p>{{ option }}</p>
-            <button>x</button>
+            <button :id="option" >x</button>
           </li>
-          <li class="options__list__item options__list__item__new">+New</li>
+          <li class="options__list__item options__list__item__new" id="Option">+New</li>
         </ul>
       </div>
       <template v-if="options.length">
@@ -29,11 +29,12 @@
               <button :id="item">x</button>
             </li>
            
-            <li class="options__list__item options__list__item__new">+New</li>
+            <li class="options__list__item options__list__item__new" :id="index">+New</li>
           </ul>
         </div>
       </template>
     </section>
+    <!-- variants -->
     <section v-if="options.length" class="wear-models__variants">
       <h2>Variants</h2>
       <ul class="options__list" id="variant">
@@ -43,7 +44,7 @@
           class="options__list__item options__list__item_active "
         >
           <p>{{ variant.options.join(" ") }}</p>
-          <button>x</button>
+          <button :id="variant">x</button>
         </li>
       </ul>
     </section>

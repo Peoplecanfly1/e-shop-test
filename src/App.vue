@@ -30,12 +30,16 @@
 
     <!-- Options & variants -->
     <Options v-if="backData" :products="backData.product"> </Options>
+
+    <!-- Prining table -->
     <Pricing
       v-if="backData"
       :product="backData.product"
       :countries="backData.regions"
     >
     </Pricing>
+    <Modal> </Modal>
+    
 
     <button class="button button_light">
       <img src="./assets/Delete.png" alt="" />
@@ -48,6 +52,7 @@
 import Description from "./components/Description.vue";
 import Options from "./components/Options.vue";
 import Pricing from "./components/Pricing.vue";
+import Modal from "./components/Modal.vue"
 
 export default {
   name: "App",
@@ -67,7 +72,7 @@ export default {
       deep: true,
     }
   },
-  components: { Description, Options, Pricing },
+  components: { Description, Options, Pricing, Modal },
 
   created: async function() {
     let result = await fetch("http://localhost:4000/api/products/rose");
@@ -87,16 +92,23 @@ export default {
 
     changeBackDesc(desc, lang) {
       if (lang == "en") {
-        console.log(desc);
         this.backData.product.description = desc;
       } else {
         this.backData.product.localization[lang].description = desc;
       }
     },
 
-    sendProduct(){
+    async sendProduct(){
       
-    }
+        let request = await fetch("http://localhost:4000/api/products/rose", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+          }, 
+          body: JSON.stringify(this.backData)
+        })
+
+    },
   }
 };
 </script>
